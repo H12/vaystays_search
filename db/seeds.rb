@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+json_file = File.read(Rails.root.join("results.json"))
+data_hash = JSON.parse(json_file)
+
+data_hash["data"].each do |args|
+  property = Property.create(args.except("user_id"))
+end

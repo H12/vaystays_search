@@ -3,4 +3,9 @@
 
 require_relative 'config/application'
 
+namespace :db do
+  desc 'This rebuilds development db'
+  task  :yolo => ["db:drop", "db:create", "db:migrate", "db:seed"]
+end
+
 Rails.application.load_tasks
