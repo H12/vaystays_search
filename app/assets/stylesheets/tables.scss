@@ -10,9 +10,18 @@
         flex-direction: column;
         .row {
             display: flex;
+            justify-content: space-around;
 
             border-bottom: 1px solid black;
             .cell {
+                &.title {
+                    flex: 3;
+                }
+                &:not(.title) {
+                    flex: 2;
+                    display: flex;
+                    justify-content: center;
+                }
             }
         }
     }

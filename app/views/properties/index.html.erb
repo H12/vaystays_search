@@ -2,17 +2,35 @@
 
 <input class="search"></input>
 
+<label>Sort By:</label>
+<select class = "sort" name="Sort By:">
+    <option value="user_rating">Rating</option>
+    <option value="sleeps_max sleeps_comfortably">Sleep Space</option>
+</select>
+
 <div class="flex-table">
     <div class="header">
         <div class="row">
-            <div class="cell">Title</div>
+            <div class="cell title">Title</div>
+            <div class="cell sleeps_max">Sleeps Max</div>
+            <div class="cell sleeps_comforatbly">Sleeps Comfortably</div>
+            <div class="cell user_rating">User Rating</div>
         </div>
     </div>
-    <div class="body search-target">
+    <div class="body search-target sort-target">
         <% @properties.each do |property| %>
             <div class="row">
-                <div class="cell">
+                <div class="cell title">
                     <%= link_to property.title, property_path(property) %>
+                </div>
+                <div class="cell sleeps_max">
+                    <%= property.sleeps_max %>
+                </div>
+                <div class="cell sleeps_comforatbly">
+                    <%= property.sleeps_comfortably %>
+                </div>
+                <div class="cell user_rating">
+                    <%= property.user_rating %>
                 </div>
             </div>
         <% end %>
