@@ -4,8 +4,9 @@
 
 <label>Sort By:</label>
 <select class = "sort" name="Sort By:">
-    <option value="user_rating">Rating</option>
-    <option value="sleeps_max sleeps_comfortably">Sleep Space</option>
+    <option value=".tiebreaker_sort">Default</option>
+    <option value=".user_rating .tiebreaker_sort">Rating</option>
+    <option value=".sleeps_max .sleeps_comforatbly .tiebreaker_sort">Sleep Space</option>
 </select>
 
 <div class="flex-table">
@@ -31,6 +32,9 @@
                 </div>
                 <div class="cell user_rating">
                     <%= property.user_rating %>
+                </div>
+                <div class="cell tiebreaker_sort">
+                    <%= property.tiebreaker_sort %>
                 </div>
             </div>
         <% end %>
