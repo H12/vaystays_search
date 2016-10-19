@@ -1,0 +1,9 @@
+<h1>
+  <%= @property.title %>
+</h1>
+
+<% @property.attributes.each do |key, value| %>
+  <p>
+    <%= "#{key}: #{value}" %>
+  </p>
+<% end %>

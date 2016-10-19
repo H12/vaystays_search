@@ -12,7 +12,7 @@
         <% @properties.each do |property| %>
             <div class="row">
                 <div class="cell">
-                    <%= property.title %>
+                    <%= link_to property.title, property_path(property) %>
                 </div>
             </div>
         <% end %>
