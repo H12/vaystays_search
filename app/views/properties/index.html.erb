@@ -9,6 +9,13 @@
     <option value=".sleeps_max .sleeps_comforatbly .tiebreaker_sort">Sleep Space</option>
 </select>
 
+<label>Min Beds:</label>
+<select class="filter">
+    <% (1..@max_guests).to_a.reverse.each do |beds| %>
+        <option <%= "selected" if beds == @max_guests %>><%= beds %></option>
+    <% end %>
+</select>
+
 <div class="flex-table">
     <div class="header">
         <div class="row">
