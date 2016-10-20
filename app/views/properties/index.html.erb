@@ -11,8 +11,8 @@
 
 <label>Min Beds:</label>
 <select class="filter">
-    <% (1..@max_guests).to_a.reverse.each do |beds| %>
-        <option <%= "selected" if beds == @max_guests %>><%= beds %></option>
+    <% (1..@max_guests).each do |beds| %>
+        <option <%= "selected" if beds == 1 %>><%= beds %></option>
     <% end %>
 </select>
 
