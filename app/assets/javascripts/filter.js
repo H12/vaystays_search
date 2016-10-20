@@ -1,14 +1,22 @@
 $(document).ready(function() {
-    $("select.filter").on("change", function() {
-        var minBeds = this.value;
-        var sleepsMaxCells = $(".filter-target .cell.sleeps_max");
+    $("input.search").on("keyup", filter);
+    $("select.filter").on("change", filter);
 
-        $.each(sleepsMaxCells, function(i, cell) {
-            if (parseInt(cell.innerText) < minBeds) {
-                $(cell).closest(".row").hide();
+    function filter() {
+        var query = $("input.search").val().toLowerCase();
+        var minBeds = $("select.filter").val();
+        var rows = $(".filter-target .row");
+
+        $.each(rows, function(i, row) {
+            var $row = $(row);
+            var title = $row.find(".title")[0].innerText.toLowerCase();
+            var sleepsMax = parseInt($row.find(".sleeps_max")[0].innerText);
+
+            if (sleepsMax >= minBeds && ~title.indexOf(query)) {
+                $row.show();
             } else {
-                $(cell).closest(".row").show();
+                $row.hide();
             }
         });
-    });
+    }
 });
